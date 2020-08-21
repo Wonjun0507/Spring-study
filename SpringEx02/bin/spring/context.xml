@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- scope : 프로토 타입으로 인스턴스화 시킬래 -->
+	<bean id="helloBean1" class="spring.HelloBean" scope="prototype" />
+	<bean id="helloBean2" class="spring.HelloBean" scope="singleton" />
+	<!-- scope를 지정하지 않으면 디폴트값은 singleton -->
+	<bean id="helloBean3" class="spring.HelloBean" />
+	
+</beans>
