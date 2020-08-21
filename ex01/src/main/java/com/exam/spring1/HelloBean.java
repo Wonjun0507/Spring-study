@@ -2,6 +2,7 @@ package com.exam.spring1;
 
 public class HelloBean {
 	
+	// 깃허브 올리는 실험중
 	private String name;
 	private String firstName;
 	private String lastName;
