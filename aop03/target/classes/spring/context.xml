@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- 인스턴스화 -->
+	<bean id="action" class="spring.WriteAction">
+		<property name="writer">
+			<value>토르</value>
+		</property>
+	</bean>
+	
+	<bean id="basicAdvice" class="aop.BasicAdvice" />
+	<!-- AOP 설정 -->
+	<aop:config>
+		<aop:aspect id="aspect" ref="basicAdvice">
+			<aop:pointcut id="pointcut" expression="execution(* execute1())" />
+			<aop:around method="logAround" pointcut-ref="pointcut"/>
+		</aop:aspect>
+	</aop:config>
+	
+	
+	<bean id="basicAdvice2" class="aop.BasicAdvice" />
+	<!-- AOP 설정 -->	
+	<aop:config>
+		<aop:aspect id="aspect" ref="basicAdvice2">
+			<aop:pointcut id="pointcut2" expression="execution(* execute2())" />
+			<aop:around method="logAround2" pointcut-ref="pointcut2"/>
+		</aop:aspect>
+	</aop:config>
+	
+
+</beans>
