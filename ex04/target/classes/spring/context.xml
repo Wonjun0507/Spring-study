@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="to1" class="spring.BoardTO">
+		<property name="seq" value="1" />
+		<property name="subject" value="제목 1" />
+	</bean>
+	<bean id="to2" class="spring.BoardTO">
+		<property name="seq" value="2" />
+		<property name="subject" value="제목 2" />
+	</bean>
+
+
+
+	<bean id="listTO" class="spring.BoardListTO" scope="prototype">
+	<!-- set -->
+	<property name="userLists">
+		<!-- ArrayList -->
+		<list>
+			<value>토르</value>
+			<value>로키</value>
+		</list>
+	</property>	
+	
+	<property name="boardLists" >
+		<list>
+			<ref bean="to1" />
+			<ref bean="to2" />
+		</list>
+	</property>
+	<property name="boardSets">
+		<set>
+			<ref bean="to1" />
+			<ref bean="to2" />
+		</set>
+	</property>
+	<property name="boardMaps">
+		<map>
+			<entry key="to1">
+				<ref bean="to1" />
+			</entry>
+			<entry key="to2">
+				<ref bean="to2" />
+			</entry>
+		</map>
+	</property>
+	</bean>
+</beans>
